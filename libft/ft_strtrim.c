@@ -12,26 +12,26 @@
 
 #include "libft.h"
 
-char		*ft_strtrim(const char *s)
+char		*ft_strtrim(char const *s)
 {
 	size_t		start;
 	size_t		len;
-	char		*str;
+	size_t		end;
 
 	start = 0;
-	if (!s)
+	if (s == NULL)
 		return (NULL);
-	while (((s[start] == ' ') || (s[start] == '\n')
-					|| (s[start] == '\t')) && (s[start] != '\0'))
-		start++;
-	len = ft_strlen(s);
-	while (((s[len - 1] == ' ') || (s[len - 1] == '\n')
-				|| (s[len - 1] == '\t')) && (s[len - 1] != '\0'))
-		len--;
-	if (len < start)
-		len = start;
-	str = ft_strsub(s, start, len - start);
-	if (str)
-		return (str);
-	return (NULL);
+  len = 0;
+  start = 0;
+  end = (ft_strlen(s) - 1);
+  if (end > ft_strlen(s))
+          return (ft_strnew(0));
+  while ((s[start] >= '\t' && s[start] <= '\r') || s[start] == ' ')
+          start++;
+  if ((start - 1) == end)
+          return (ft_strnew(0));
+  while ((s[end] >= '\t' && s[end] <= '\r') || s[end] == ' ')
+          end--;
+  len = (end - start + 1);
+  return ((ft_strsub(s, start, len)));
 }
