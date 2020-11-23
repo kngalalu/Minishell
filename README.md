@@ -34,5 +34,5 @@ for your Minishell, so be sure to code the cleanest, simplest program possible.
 * You must manage expansions $ and ˜
 
 # HOW TO USE
+Run the Makefile
 
-# FINAL MARK
